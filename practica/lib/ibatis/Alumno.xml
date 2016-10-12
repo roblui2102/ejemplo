@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">    
+
+<sqlMap >
+    
+    <select id="listarAlumnos" resultClass="dto.Alumno">
+        select * from alumno
+    </select>    
+    <insert id="agregarAlumno" >
+        insert into alumno(codi_alum,nomb_alum,appa_alum,apma_alum) values(#codi_alum#,#nomb_alum#,#appa_alum#,#apma_alum#)
+    </insert>   
+       <update id="editarAlumno" parameterClass="dto.Alumno">
+        update alumno set
+          codi_alum=#codi_alum#,
+          nomb_alum=#nomb_alum#,
+          appa_alum= #appa_alum#,
+           apma_alum=#apma_alum#
+           where codi_alum=#codi_alum#
+    </update>  
+      <delete id="eliminarAlumno" parameterClass="dto.Alumno">
+        delete from alumno 
+        where codi_alum=#codi_alum#
+    </delete>   
+</sqlMap>
